@@ -406,7 +406,7 @@
                 <sourceEncoding>utf-8</sourceEncoding>
                 <minimumTokens>100</minimumTokens>
                 <includes>
-                    <include>C:\Program Files (x86)\Jenkins\jobs\spring-petclinic\workspace\src\test\java\org\springframework\samples\petclinic\service</include>                      
+                    <include>C:\Program Files (x86)\Jenkins\jobs\spring-petclinic\workspace\src\test\java\org\springframework\samples\petclinic</include>                      
                 </includes>
                 <!--<excludeRoots>
                     <excludeRoot>target/generated-sources/*</excludeRoot>
