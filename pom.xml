@@ -10,6 +10,8 @@
 
 	<properties>
 
+	
+
 		<!-- Generic properties -->
 		<java.version>1.6</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -398,21 +400,7 @@
 					<warName>petclinic</warName>
 				</configuration>
 			</plugin>
-			<plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-pmd-plugin</artifactId>
-            <version>2.7.1</version>
-            <configuration>
-                <sourceEncoding>utf-8</sourceEncoding>
-                <minimumTokens>100</minimumTokens>
-                <includes>
-                    <include>C:\Program Files (x86)\Jenkins\jobs\spring-petclinic\workspace\src\test\java\org\springframework\samples\petclinic</include>                      
-                </includes>
-                <!--<excludeRoots>
-                    <excludeRoot>target/generated-sources/*</excludeRoot>
-                </excludeRoots> -->
-            </configuration>
-            </plugin>
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
@@ -459,7 +447,7 @@
 					<path>/petclinic</path>
 				</configuration>
 			</plugin>
-			<plugin>
+		<!--	<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-pmd-plugin</artifactId>
 			  <executions>
@@ -471,9 +459,60 @@
 				</goals>
 			    </execution>
 		       </executions>
-             </plugin>
+             </plugin> -->
 			</plugins>
 	</build>
 	<url>demopetclinic</url>
 
+	<reporting>
+    <plugins>
+       
+	   <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jxr-plugin</artifactId>
+            <version>2.3</version>
+        </plugin>
+		
+		<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-pmd-plugin</artifactId>
+            <version>2.7.1</version>
+            <configuration>
+                <sourceEncoding>utf-8</sourceEncoding>
+                <minimumTokens>100</minimumTokens>
+                <!--includes>
+                    <include>C:\Program Files (x86)\Jenkins\jobs\spring-petclinic-test\workspace\src\test\java\org\springframework\samples\petclinic\model</include>
+					<include>C:\Program Files (x86)\Jenkins\jobs\spring-petclinic-test\workspace\src\test\java\org\springframework\samples\petclinic\service</include>
+					<include>C:\Program Files (x86)\Jenkins\jobs\spring-petclinic-test\workspace\src\test\java\org\springframework\samples\petclinic\web</include>
+                </includes-->
+                <!--<excludeRoots>
+                    <excludeRoot>target/generated-sources/*</excludeRoot>
+                </excludeRoots> -->
+				  <rulesets>
+                    <ruleset>${basedir}/pmd.xml</ruleset>
+        </rulesets>
+
+            </configuration>
+            </plugin>
+			
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.9.1</version>
+				<configuration>
+					<!--includes>C:\Program Files (x86)\Jenkins\jobs\spring-petclinic-test\workspace\src\test\java\org\springframework\samples\petclinic\model</includes>
+					<include>C:\Program Files (x86)\Jenkins\jobs\spring-petclinic-test\workspace\src\test\java\org\springframework\samples\petclinic\service</include>
+					<include>C:\Program Files (x86)\Jenkins\jobs\spring-petclinic-test\workspace\src\test\java\org\springframework\samples\petclinic\web</include -->
+					  <rulesets>
+          <ruleset>${basedir}/pmd.xml</ruleset>
+        
+          
+        </rulesets>
+
+				</configuration>	
+            </plugin>
+			
+    </plugins>
+</reporting>
 	</project>
